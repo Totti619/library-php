@@ -16,7 +16,7 @@ $http=Configuration::http();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link text-white" href="<?php echo $http;?>">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-white" href="<?php echo $http;?>">Your reservations <span class="sr-only">(current)</span></a>
             </li>
 
 

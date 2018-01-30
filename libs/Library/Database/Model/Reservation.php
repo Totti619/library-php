@@ -42,6 +42,19 @@ class Reservation extends Model
     }
 
     /**
+     * @param User $user
+     * @return Reservation[]
+     */
+    public static function getAllOfUser($user)
+    {
+        $array=[];
+        foreach (Reservation::getAll() AS $reservation)
+            if($reservation->getUser()===$user->getId())
+                $array[]=$reservation;
+        return $array;
+    }
+
+    /**
      * @return string
      */
     public static function getTableName()

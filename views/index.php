@@ -1,8 +1,13 @@
 <?php
 include "../libs/bootstrap.php";
 use Library\Configuration;
+use Library\Database\Model\Reservation;
+use Library\Database\Model\User;
+
 $root=Configuration::root();
 $http=Configuration::http();
+
+$reservations=Reservation::getAllOfUser(User::get($_SESSION["id"]));
 
 ?>
 <!doctype html>
