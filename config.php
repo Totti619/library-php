@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('BORROWED_DAYS')) define("BORROWED_DAYS", 15);
-if (!defined('MAX_RESERVATIONS_PER_USER_ON_A_DAY')) define("MAX_RESERVATIONS_PER_USER_ON_A_DAY", 999);
+if (!defined('MAX_RESERVATIONS_PER_USER_ON_A_DAY')) define("MAX_RESERVATIONS_PER_USER_ON_A_DAY", 99);
 
 /* DOCUMENT ROOT DIRECTORY */
 if (!defined('ROOT')) define("ROOT", __DIR__."/");

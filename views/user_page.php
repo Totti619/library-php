@@ -19,7 +19,7 @@ $http=Configuration::http();
 </head>
 <body>
 <?php include "$root/views/layouts/user_bar.php"?>
-<?php include "$root/views/layouts/nav.php";$user=User::get($_SESSION["id"]); ?>
+<?php include "$root/views/layouts/nav.php";$user=User::get(isset($_GET["id"])?$_GET["id"]:$_SESSION["id"]); ?>
 
 <div class="container">
 <!--        <form action="--><?php //echo "$http/actions/session/register.php" ?><!--" method="post">-->

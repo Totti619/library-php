@@ -55,6 +55,19 @@ class Reservation extends Model
     }
 
     /**
+     * @param User $user
+     * @return Reservation[]
+     */
+    public static function getAllPendentOfUser($user)
+    {
+        $array=[];
+        foreach (Reservation::getAllOfUser($user) AS $reservation)
+            if($reservation->getReturnTime()==="0000-00-00 00:00:00")
+                $array[]=$reservation;
+        return $array;
+    }
+
+    /**
      * @return string
      */
     public static function getTableName()
@@ -245,6 +258,7 @@ class Reservation extends Model
     }
     public static function delete($column, $value)
     {
+        BookCopy::get((Reservation::get($value))->getBookCopy())->updateState(State::DEFAULT);
         return parent::deleteRow(self::getTableName(), $column, $value);
     }
     /* END INSERT SELECT UPDATE DELETE METHODS */

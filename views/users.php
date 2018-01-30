@@ -32,7 +32,7 @@ $rows=User::getAll();
             Actions
         </p>
         <div>
-            <a href="<?php echo "$http/views/add_a_book.php"?>" class="btn btn-primary">Add a user</a>
+            <a href="<?php echo "$http/views/register.php"?>" class="btn btn-primary">Add a user</a>
         </div>
     </div>
     <div class="row">
@@ -59,16 +59,12 @@ $rows=User::getAll();
                             <td><?php echo $row->getUsername();?></td>
                             <td><?php echo $row->getDni();?></td>
                             <td>
-                                <a href="<?php echo "$http/actions/crud/user/update_user.php;"?>?isbn=<?php if (isset($id)) {
-                                    echo $rowId;
-                                } ?>">
+                                <a href="<?php echo "$http/views/user_page.php?id=".$row->getId()?>">
                                     <i class="material-icons">settings</i>
                                 </a>
                             </td>
                             <td>
-                                <a href="<?php echo "$http/actions/crud/user/delete_user.php;"?>?isbn=<?php if (isset($rowId)) {
-                                    echo $rowId;
-                                } ?>">
+                                <a href="<?php echo "$http/actions/crud/user/delete.php?id=".$row->getId()?>">
                                     <i class="material-icons text-danger">delete forever</i>
                                 </a>
                             </td>

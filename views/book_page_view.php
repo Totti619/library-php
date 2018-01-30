@@ -11,6 +11,8 @@ use Library\Database\Model\Country;
 use Library\Database\Model\Editorial;
 use Library\Database\Model\Genre;
 use Library\Database\Model\Language;
+use Library\Database\Model\UserType;
+use Library\User\Session;
 
 $book=Book::get($_GET['isbn']);
 $country=Country::get($book->getCountry());
@@ -92,6 +94,92 @@ foreach ($genres AS $item){
 
 
             </section>
+            <?php if(Session::isType(UserType::ADMINISTRATOR)||Session::isType(UserType::LIBRARIAN)):?>
+                <section class="row">
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="title">Title (Current: <?php echo $book->getTitle();?>)
+                                <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" placeholder="Enter it's title">
+                                <button
+                                        onclick="
+                                                window
+                                                .location
+                                                .href='<?php echo "$http/actions/crud/books/update.php"?>'
+                                                +'?id=<?php echo $book->getIsbn();?>'+
+                                                '&field=title'+
+                                                '&value='+document.getElementById('title').value
+                                                ;
+                                                "
+                                        class="btn btn-info">
+                                    Update title
+                                </button>
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="year">Year (Current: <?php echo $book->getYear();?>)
+                                <input type="number" class="form-control" id="year" name="year" aria-describedby="emailHelp" placeholder="Enter it's year">
+                                <button
+                                        onclick="
+                                                window
+                                                .location
+                                                .href='<?php echo "$http/actions/crud/books/update.php"?>'
+                                                +'?id=<?php echo $book->getIsbn();?>'+
+                                                '&field=year'+
+                                                '&value='+document.getElementById('year').value
+                                                ;
+                                                "
+                                        class="btn btn-info">
+                                    Update year
+                                </button>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="edition">Edition (Current: <?php echo $book->getEdition();?>)
+                                <input type="number" class="form-control" id="edition" name="edition" aria-describedby="emailHelp" placeholder="Enter it's edition number">
+                                <button
+                                        onclick="
+                                                window
+                                                .location
+                                                .href='<?php echo "$http/actions/crud/books/update.php"?>'
+                                                +'?id=<?php echo $book->getIsbn();?>'+
+                                                '&field=edition'+
+                                                '&value='+document.getElementById('edition').value
+                                                ;
+                                                "
+                                        class="btn btn-info">
+                                    Update edition
+                                </button>
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="edition_year">Edition year(Current: <?php echo $book->getEditionYear();?>)
+                                <input type="number" class="form-control" id="edition_year" name="edition_year" aria-describedby="emailHelp" placeholder="Enter it's edition year">
+                                <button
+                                        onclick="
+                                                window
+                                                .location
+                                                .href='<?php echo "$http/actions/crud/books/update.php"?>'
+                                                +'?id=<?php echo $book->getIsbn();?>'+
+                                                '&field=edition_year'+
+                                                '&value='+document.getElementById('edition_year').value
+                                                ;
+                                                "
+                                        class="btn btn-info">
+                                    Update edition year
+                                </button>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+            <?php endif;?>
         </div>
 
 <?php include "$root/views/layouts/footer.php"?>

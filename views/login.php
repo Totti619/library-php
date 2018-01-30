@@ -18,7 +18,7 @@ $http=Configuration::http();
 <?php //include "$root/views/layouts/user_bar.php"?>
 <!--    --><?php //include "$root/views/layouts/nav.php" ?>
 
-      <div class="container">
+      <div class="container" style="margin-top: 200px">
           <form action="<?php echo "$http/actions/session/login.php" ?>" method="POST">
               <div class="form-group">
                 <label for="username">Your username:</label>

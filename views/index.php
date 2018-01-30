@@ -27,7 +27,7 @@ $http=Configuration::http();
 
     <?php
     $reservations=\Library\User\Session::isLogged()
-        ?   Reservation::getAllOfUser(User::get($_SESSION["id"]))
+        ?   Reservation::getAllPendentOfUser(User::get($_SESSION["id"]))
         :   []
     ;
     ?>

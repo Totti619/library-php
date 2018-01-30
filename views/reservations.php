@@ -3,6 +3,7 @@ include "../libs/bootstrap.php";
 use Library\Configuration;
 use Library\Book\BookController;
 use Library\Database\Model\Book;
+use Library\Database\Model\BookCopy;
 use Library\Database\Model\Country;
 use Library\Database\Model\Editorial;
 use Library\Database\Model\Language;
@@ -52,6 +53,8 @@ $rows=Reservation::select();
                             <?php
                             if ($key === "user")
                                 echo (User::get($value))->getUsername();
+                            else if($key==="book_copy")
+                                echo Book::get((BookCopy::get($value))->getBook())->getTitle()."#".$value;
                             else if($value!=="0000-00-00 00:00:00")
                                 echo $value;
                             else echo "Not set";
