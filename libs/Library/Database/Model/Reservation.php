@@ -49,7 +49,7 @@ class Reservation extends Model
     {
         $array=[];
         foreach (Reservation::getAll() AS $reservation)
-            if($reservation->getUser()===$user->getId())
+            if($reservation->getUser()==$user->getId())
                 $array[]=$reservation;
         return $array;
     }

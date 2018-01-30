@@ -33,7 +33,7 @@ class User extends Model
      * @param $surnames
      * @param int $defaulting
      * @param int $type
-     * @param null $id
+     * @param int|string|null $id
      */
     public function __construct($username, $password, $dni, $email, $telephoneNumber, $realName, $surnames, $defaulting=User::IS_NOT_DEFAULTING, $type=UserType::ADMINISTRATOR, $id = null)
     {
@@ -131,7 +131,7 @@ class User extends Model
     }
 
     /**
-     * @return null
+     * @return int|string
      */
     public function getId()
     {
